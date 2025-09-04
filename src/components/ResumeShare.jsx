@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 
 // Directly import the image and PDF
-import resumeImage from '../assets/Hardagya Rajput Resume.svg';
+import resumeImage from '../assets/Hardagya Rajput.jpg';
 import resumePDF from '../assets/Hardagya Rajput Resume.pdf';
 
 const ResumeShare = () => {
