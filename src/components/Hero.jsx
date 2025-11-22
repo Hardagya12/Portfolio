@@ -4,7 +4,7 @@ import AnimatedSignature from './AnimatedSignature';
 
 const Hero = () => {
   return (
-    <div className="min-h-screen relative overflow-hidden flex flex-col items-center justify-center pt-16"> {/* Reduced pt-20 to pt-16 */}
+    <div className="min-h-[100dvh] relative overflow-hidden flex flex-col items-center justify-center pt-32 sm:pt-40">
       {/* Static Background with explicit hex */}
       <div 
         className="absolute inset-0"
@@ -37,22 +37,19 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Main Content */}
-      <div className="relative text-center space-y-8 z-10">
+      <div className="relative text-center space-y-6 z-10 w-full px-4">
         <motion.p 
-          style={{ color: '#9ca3af', fontSize: '1.125rem' }} // gray-400, 18px
+          className="text-gray-400 text-lg sm:text-xl md:text-2xl font-serif italic tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           Design. Develop. Deliver.
-
-
         </motion.p>
         
-        <div className="relative">
+        <div className="relative w-full flex justify-center">
           <motion.h1 
-            style={{ fontSize: '150px', fontWeight: 'bold', letterSpacing: '0.25em', color: '#ffffff' }} // white
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-sans font-bold tracking-tighter text-white break-words leading-none"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
@@ -62,7 +59,7 @@ const Hero = () => {
           
           {/* Light 1: Middle of "CREATIONS" Text */}
           <motion.div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-50"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-96 md:h-96 opacity-50 pointer-events-none"
             style={{
               background: 'radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0) 100%)',
               filter: 'blur(15px)',
@@ -81,10 +78,8 @@ const Hero = () => {
           
           {/* Light 2: Top-Left of Hero Section */}
           <motion.div 
-            className="absolute top-10 left-10"
+            className="absolute top-0 left-0 md:top-10 md:left-10 w-40 h-40 md:w-[250px] md:h-[250px] pointer-events-none"
             style={{
-              width: '250px',
-              height: '250px',
               background: 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 80%)',
               filter: 'blur(20px)',
               opacity: 0.4,
@@ -104,10 +99,8 @@ const Hero = () => {
           
           {/* Light 3: Right of Hero Section (Middle-Right) */}
           <motion.div 
-            className="absolute top-1/2 right-10 -translate-y-1/2"
+            className="absolute bottom-20 right-0 md:top-1/2 md:right-10 md:-translate-y-1/2 w-36 h-36 md:w-[230px] md:h-[230px] pointer-events-none"
             style={{
-              width: '230px',
-              height: '230px',
               background: 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 80%)',
               filter: 'blur(18px)',
               opacity: 0.35,
@@ -135,6 +128,25 @@ const Hero = () => {
           <AnimatedSignature />
         </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ 
+          opacity: { delay: 2, duration: 1 },
+          y: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+        }}
+      >
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
+          <motion.div 
+            className="w-1 h-2 bg-white rounded-full"
+            animate={{ height: [8, 16, 8] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+        </div>
+      </motion.div>
     </div>
   );
 };

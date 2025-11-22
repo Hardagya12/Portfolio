@@ -65,7 +65,7 @@ const OpenSourceContribution = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32">
+    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-12 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
       <div className="absolute inset-0 z-0">
         <motion.div
           className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 bg-gray-800/20 rounded-full blur-3xl pointer-events-none"
@@ -79,16 +79,16 @@ const OpenSourceContribution = () => {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12 sm:mb-14 md:mb-16"
+          className="text-center mb-12"
         >
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-serif italic"
             initial={{ scale: 0.8 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -97,7 +97,7 @@ const OpenSourceContribution = () => {
             Open Source Contributions
           </motion.h2>
           <motion.p
-            className="text-gray-300 text-base sm:text-lg md:text-lg max-w-2xl mx-auto"
+            className="text-gray-300 text-base sm:text-lg md:text-lg max-w-2xl mx-auto font-light"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -116,7 +116,7 @@ const OpenSourceContribution = () => {
               whileHover="hover"
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/10 z-10"
+              className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10"
             >
               <motion.img
                 src={contribution.image}
@@ -129,7 +129,7 @@ const OpenSourceContribution = () => {
                 className="w-full h-40 sm:h-44 md:h-48 object-cover rounded-lg mb-4"
               />
               <motion.h3
-                className="text-lg sm:text-xl font-bold text-white mb-3"
+                className="text-lg sm:text-xl font-bold text-white mb-3 font-serif"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
@@ -137,7 +137,7 @@ const OpenSourceContribution = () => {
                 {contribution.title}
               </motion.h3>
               <motion.p
-                className="text-gray-300 text-sm sm:text-base mb-4"
+                className="text-gray-300 text-sm sm:text-base mb-4 font-light"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
@@ -149,7 +149,7 @@ const OpenSourceContribution = () => {
                   href={contribution.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm sm:text-base"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm sm:text-base font-medium"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -162,7 +162,7 @@ const OpenSourceContribution = () => {
                   href={contribution.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm sm:text-base"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm sm:text-base font-medium"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >

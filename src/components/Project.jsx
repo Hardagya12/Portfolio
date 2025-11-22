@@ -13,18 +13,9 @@ import javascriptintermediate from '../images/certificates/jsintermediate.png';
 import psbasic from '../images/certificates/psbasic.png';
 import psintermediate from '../images/certificates/psintermediate.png';
 import restapiintermediate from '../images/certificates/restapiintermediate.png';
-import { title } from 'framer-motion/client';
-
 
 const projects = [
-  {
-    title: "Culinary and Charms",
-    description: "Culinary and Charms is a unique explorer platform where users can discover delicious meals and cocktail recipes, dive into the magical world of Harry Potter, and even fetch real-time bank details using IFSC codes.",
-    image: "https://media.istockphoto.com/id/2166320051/photo/api-application-programming-interface-concept-a-programmer-types-on-a-laptop-interacting-with.jpg?s=612x612&w=0&k=20&c=f2Q5qzL9JX8f_wKkUT4FcGKVFgitrWYZaJyecKiLsAg=",
-    tags: ["React", "Tailwind", "API"],
-    github: "https://github.com/Hardagya12/REACT-API",
-    live: "https://culinary-and-charms.netlify.app/"
-  },
+
   {
     title: "Bright Board",
     description: "Bright Board is a digital classroom platform that enables institutes to manage attendance, reports, study materials, exams, and feedback seamlessly.",
@@ -32,6 +23,23 @@ const projects = [
     tags: ["React", "Node", "MongoDB", "Tailwind", "CSS", "API"],
     github: "https://github.com/Hardagya12/bright_board",
     live: "https://brightboard-seven.vercel.app/"
+  },
+
+  {
+    title : "Stock Master",
+    description : "Stock Master is a web application that helps users track and manage their stock portfolio, providing insights and recommendations for optimal investment strategies.",
+    image : "https://res.cloudinary.com/dqmm6c02u/image/upload/v1763825327/Screenshot_2025-11-22_205416_x07aoo.png",
+    tags : ["React", "Node", "PostgreSQL", "Tailwind", "CSS", "API"],
+    github : "https://github.com/Hardagya12/Odoo-StockMaster",
+    live : "https://odoo-stock-master.vercel.app/"
+  },
+    {
+    title: "Culinary and Charms",
+    description: "Culinary and Charms is a unique explorer platform where users can discover delicious meals and cocktail recipes, dive into the magical world of Harry Potter, and even fetch real-time bank details using IFSC codes.",
+    image: "https://media.istockphoto.com/id/2166320051/photo/api-application-programming-interface-concept-a-programmer-types-on-a-laptop-interacting-with.jpg?s=612x612&w=0&k=20&c=f2Q5qzL9JX8f_wKkUT4FcGKVFgitrWYZaJyecKiLsAg=",
+    tags: ["React", "Tailwind", "API"],
+    github: "https://github.com/Hardagya12/REACT-API",
+    live: "https://culinary-and-charms.netlify.app/"
   },
   {
     title: "Pixabay clone",
@@ -65,8 +73,6 @@ const projects = [
     live: "https://environmentimpactcalulatorbyhardagya.netlify.app/"
   }
 ];
-
-
 
 const certificates = [
   {
@@ -211,7 +217,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden py-16" style={{ fontFamily: 'Source Code Pro' }}>
+    <div className="min-h-screen bg-black relative overflow-hidden py-12" style={{ fontFamily: 'Outfit, sans-serif' }}>
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-white/30 origin-left z-50"
@@ -246,7 +252,7 @@ const Projects = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Projects Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -255,7 +261,7 @@ const Projects = () => {
           className="text-center mb-12"
         >
           <motion.h2 
-            className="text-6xl font-bold text-white mb-4"
+            className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 italic"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -268,7 +274,7 @@ const Projects = () => {
             Projects
           </motion.h2>
           <motion.p 
-            className="text-gray-400 max-w-2xl mx-auto"
+            className="text-gray-400 max-w-2xl mx-auto font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -282,7 +288,7 @@ const Projects = () => {
           {allTags.map((tag) => (
             <motion.button
               key={tag}
-              className={`px-4 py-2 rounded-full text-sm transition-colors duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm transition-colors duration-300 font-medium tracking-wide ${
                 selectedTag === tag
                   ? 'bg-white text-black'
                   : 'bg-gray-800 text-white hover:bg-gray-700'
@@ -300,7 +306,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -310,10 +316,10 @@ const Projects = () => {
               whileInView="visible"
               whileHover="hover"
               viewport={{ once: true, amount: 0.2 }}
-              className="bg-white/5 rounded-xl overflow-hidden backdrop-blur-lg border border-white/10"
+              className="bg-white/5 rounded-xl overflow-hidden border border-white/10 flex flex-col h-full"
             >
               <motion.div 
-                className="relative h-48 overflow-hidden"
+                className="relative h-48 md:h-64 overflow-hidden shrink-0"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
@@ -330,9 +336,9 @@ const Projects = () => {
                 />
               </motion.div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <motion.h3 
-                  className="text-xl font-bold text-white mb-2"
+                  className="text-xl md:text-2xl font-bold text-white mb-2 font-serif"
                   initial={{ x: -20, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -340,7 +346,7 @@ const Projects = () => {
                   {project.title}
                 </motion.h3>
                 <motion.p 
-                  className="text-gray-400 mb-4"
+                  className="text-gray-400 mb-4 text-sm md:text-base flex-grow font-light"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
@@ -348,7 +354,7 @@ const Projects = () => {
                   {project.description}
                 </motion.p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4 mt-auto">
                   {project.tags.map((tag, tagIndex) => (
                     <motion.span 
                       key={tagIndex}
@@ -356,7 +362,7 @@ const Projects = () => {
                       initial="initial"
                       animate="animate"
                       whileHover="hover"
-                      className="px-3 py-1 bg-white/10 rounded-full text-sm text-white"
+                      className="px-3 py-1 bg-white/10 rounded-full text-xs md:text-sm text-white font-mono"
                       style={{ originX: 0 }}
                       transition={{ delay: tagIndex * 0.1 }}
                     >
@@ -365,11 +371,11 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex gap-4 pt-2">
                   {project.github && (
                     <motion.a
                       href={project.github}
-                      className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                      className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm md:text-base"
                       whileHover={{ scale: 1.1, x: 5 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -379,7 +385,7 @@ const Projects = () => {
                   )}
                   <motion.a
                     href={project.live}
-                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm md:text-base"
                     whileHover={{ scale: 1.1, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -392,8 +398,6 @@ const Projects = () => {
           ))}
         </div>
 
-       
-
         {/* Certificates Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -402,7 +406,7 @@ const Projects = () => {
           className="text-center mb-12"
         >
           <motion.h2 
-            className="text-5xl font-bold text-white mb-4"
+            className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 italic"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -415,7 +419,7 @@ const Projects = () => {
             Certificates
           </motion.h2>
           <motion.p 
-            className="text-gray-400 max-w-2xl mx-auto"
+            className="text-gray-400 max-w-2xl mx-auto font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -439,7 +443,7 @@ const Projects = () => {
                 animate="visible"
                 whileHover="hover"
                 viewport={{ once: false, amount: 0.4 }}
-                className="bg-white/5 rounded-xl overflow-hidden backdrop-blur-lg border border-white/10 flex-1"
+                className="bg-white/5 rounded-xl overflow-hidden border border-white/10 flex-1"
                 style={{ maxWidth: '320px' }}
               >
                 <motion.div 
@@ -477,7 +481,7 @@ const Projects = () => {
                         initial="initial"
                         animate="animate"
                         whileHover="hover"
-                        className="px-2 py-1 bg-white/10 rounded-full text-xs text-white"
+                        className="px-2 py-1 bg-white/10 rounded-full text-xs text-white font-mono"
                         style={{ originX: 0 }}
                         transition={{ delay: tagIndex * 0.1 }}
                       >

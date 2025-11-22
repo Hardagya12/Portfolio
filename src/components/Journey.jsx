@@ -90,7 +90,7 @@ const Journey = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden py-20" style={{ fontFamily: 'Source Code Pro' }}>
+    <div className="min-h-screen bg-black relative overflow-hidden py-16" style={{ fontFamily: 'Outfit, sans-serif' }}>
       {/* Enhanced Dynamic Background */}
       <div className="absolute inset-0">
         <motion.div
@@ -125,17 +125,17 @@ const Journey = () => {
 
       {/* Content */}
       <motion.div 
-        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
         style={{ opacity, scale }}
       >
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, type: "spring" }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <motion.h2 
-            className="text-6xl font-bold text-white mb-4"
+            className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 italic"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -148,7 +148,7 @@ const Journey = () => {
             My Journey
           </motion.h2>
           <motion.p 
-            className="text-gray-400 max-w-2xl mx-auto"
+            className="text-gray-400 max-w-2xl mx-auto font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -160,7 +160,7 @@ const Journey = () => {
         <div className="relative">
           {/* Animated Timeline Line */}
           <motion.div 
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-white/10"
+            className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-white/10"
             style={{ height: "100%" }}
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
@@ -176,14 +176,20 @@ const Journey = () => {
             {timelineData.map((item, index) => (
               <motion.div
                 key={index}
-                className={`relative mb-16 ${index % 2 === 0 ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8'}`}
+                className={`relative mb-16 md:mb-24 ${
+                  index % 2 === 0 
+                    ? 'md:ml-auto md:pl-8 pl-12' 
+                    : 'md:mr-auto md:pr-8 pl-12'
+                }`}
                 variants={itemVariants}
                 custom={index}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="flex items-center mb-4">
+                <div className={`flex items-center mb-4 ${
+                  index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'
+                }`}>
                   <motion.div
-                    className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+                    className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gray-900 border border-white/20 rounded-full flex items-center justify-center z-10"
                     variants={iconVariants}
                     initial="initial"
                     animate="animate"
@@ -194,8 +200,8 @@ const Journey = () => {
                 </div>
 
                 <motion.div 
-                  className={`bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 max-w-md mx-auto md:mx-0 ${
-                    index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}
+                  className={`bg-white/5 rounded-xl p-6 border border-white/10 max-w-md mx-auto md:mx-0 ${
+                    index % 2 === 0 ? 'md:ml-12' : 'md:mr-12 md:ml-auto'}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -212,13 +218,13 @@ const Journey = () => {
                     transition={{ delay: 0.3 }}
                   >
                     <motion.span 
-                      className="text-sm text-white/60"
+                      className="text-sm text-white/60 font-mono"
                       whileHover={{ scale: 1.1, color: "#ffffff" }}
                     >
                       {item.year}
                     </motion.span>
                     <motion.span 
-                      className={`px-3 py-1 rounded-full text-xs ${
+                      className={`px-3 py-1 rounded-full text-xs font-medium ${
                         item.type === 'education' ? 'bg-green-500/20 text-green-300' :
                         item.type === 'learning' ? 'bg-blue-500/20 text-blue-300' : ''
                       }`}
@@ -228,7 +234,7 @@ const Journey = () => {
                     </motion.span>
                   </motion.div>
                   <motion.h3 
-                    className="text-xl font-bold text-white mb-2"
+                    className="text-xl font-bold text-white mb-2 font-serif"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
@@ -236,7 +242,7 @@ const Journey = () => {
                     {item.title}
                   </motion.h3>
                   <motion.p 
-                    className="text-gray-400 mb-2"
+                    className="text-gray-400 mb-2 font-medium"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -244,7 +250,7 @@ const Journey = () => {
                     {item.company}
                   </motion.p>
                   <motion.p 
-                    className="text-gray-500"
+                    className="text-gray-500 font-light text-sm"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}

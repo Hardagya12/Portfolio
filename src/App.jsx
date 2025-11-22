@@ -10,9 +10,11 @@ import OpenSourceContribution from './components/OpenSourceContribution';
 import Resume from './components/ResumeShare';
 import './index.css';
 
+import { ReactLenis } from '@studio-freight/react-lenis';
+
 function App() {
   return (
-    <>
+    <ReactLenis root>
       <Cursor />
       <div className="app-container relative flex flex-col cursor-none">
         <Navbar />
@@ -38,7 +40,7 @@ function App() {
           <Contact />
         </section>
       </div>
-    </>
+    </ReactLenis>
   );
 }
 

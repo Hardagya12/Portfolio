@@ -78,7 +78,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32">
+    <div className="min-h-screen bg-black relative overflow-hidden py-12 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         <motion.div
@@ -113,18 +113,17 @@ const Contact = () => {
 
       {/* Content */}
       <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.div
-          className="text-center mb-12 sm:mb-14 md:mb-16"
+          className="text-center mb-12"
           variants={itemVariants}
         >
           <motion.h2 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4"
-            style={{ fontFamily: 'Source Code Pro' }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 font-serif italic"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -137,7 +136,7 @@ const Contact = () => {
             Let's Connect
           </motion.h2>
           <motion.p 
-            className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto"
+            className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto font-light"
             variants={itemVariants}
           >
             Have a project in mind? Let's discuss how we can work together
@@ -172,7 +171,7 @@ const Contact = () => {
                   </motion.div>
                   <div>
                     <motion.h3 
-                      className="text-white font-semibold text-sm sm:text-base"
+                      className="text-white font-semibold text-sm sm:text-base font-serif"
                       whileHover={{ scale: 1.05 }}
                     >
                       {item.href ? (
@@ -184,7 +183,7 @@ const Contact = () => {
                       )}
                     </motion.h3>
                     <motion.p 
-                      className="text-gray-400 text-sm sm:text-base"
+                      className="text-gray-400 text-sm sm:text-base font-light"
                       whileHover={{ color: "#ffffff" }}
                     >
                       {item.href ? (
@@ -217,7 +216,7 @@ const Contact = () => {
                   variants={formItemVariants}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <label htmlFor={field.name} className="block text-white mb-2 text-sm sm:text-base">
+                  <label htmlFor={field.name} className="block text-white mb-2 text-sm sm:text-base font-medium">
                     {field.label}
                   </label>
                   <motion.input
@@ -226,7 +225,7 @@ const Contact = () => {
                     name={field.name}
                     value={formData[field.name]}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-white/30"
+                    className="w-full px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-white/30 font-light"
                     whileFocus={{ scale: 1.02 }}
                     required
                   />
@@ -237,7 +236,7 @@ const Contact = () => {
                 variants={formItemVariants}
                 whileHover={{ scale: 1.02 }}
               >
-                <label htmlFor="message" className="block text-white mb-2 text-sm sm:text-base">
+                <label htmlFor="message" className="block text-white mb-2 text-sm sm:text-base font-medium">
                   Message
                 </label>
                 <motion.textarea
@@ -246,7 +245,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-white/30"
+                  className="w-full px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-white/30 font-light"
                   whileFocus={{ scale: 1.02 }}
                   required
                 />
@@ -254,7 +253,7 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
-                className="w-full flex items-center justify-center space-x-2 px-6 py-2 sm:py-3 bg-white text-black rounded-lg font-semibold hover:bg-white/90 transition-colors"
+                className="w-full flex items-center justify-center space-x-2 px-6 py-2 sm:py-3 bg-white text-black rounded-lg font-semibold hover:bg-white/90 transition-colors tracking-wide"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)"

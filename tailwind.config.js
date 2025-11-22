@@ -2,7 +2,13 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Outfit', 'sans-serif'],
+        serif: ['"Playfair Display"', 'serif'],
+        mono: ['"Source Code Pro"', 'monospace'],
+      },
+    },
   },
   plugins: [],
 };

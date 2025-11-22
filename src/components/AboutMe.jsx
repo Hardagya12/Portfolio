@@ -163,7 +163,7 @@ const techStats = [
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-32">
+    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-20">
       <div className="absolute inset-0 z-0">
         <motion.div
           className="absolute top-1/4 left-1/4 w-72 h-72 bg-gray-800/20 rounded-full blur-3xl pointer-events-none"
@@ -177,16 +177,16 @@ const techStats = [
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <motion.h2
-            className="text-5xl font-bold text-white mb-4"
+            className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 italic"
             initial={{ scale: 0.8 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -204,7 +204,7 @@ const techStats = [
             whileHover="hover"
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/5 backdrop-blur-lg rounded-2xl p-12 border border-white/10 z-10 lg:max-w-4xl mx-auto"
+            className="bg-white/5 rounded-2xl p-6 md:p-12 border border-white/10 lg:max-w-4xl mx-auto"
           >
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <motion.img
@@ -215,11 +215,11 @@ const techStats = [
                 whileInView="visible"
                 whileHover="hover"
                 viewport={{ once: false, amount: 0.3 }}
-                className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-2 border-white/20"
+                className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-2 border-white/20 shrink-0"
               />
-              <div className="flex-1">
+              <div className="flex-1 text-center md:text-left">
                 <motion.h3
-                  className="text-3xl font-bold text-white mb-6"
+                  className="text-2xl md:text-3xl font-serif italic font-bold text-white mb-4 md:mb-6"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -227,7 +227,7 @@ const techStats = [
                   Who am I?
                 </motion.h3>
                 <motion.p
-                  className="text-gray-300 leading-relaxed text-lg"
+                  className="text-gray-300 leading-relaxed text-base md:text-lg font-sans font-light"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
@@ -248,7 +248,7 @@ const techStats = [
                 whileHover="hover"
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 z-10"
+                className="bg-white/5 rounded-2xl p-8 border border-white/10"
               >
                 <motion.div
                   variants={iconVariants}
@@ -259,7 +259,7 @@ const techStats = [
                   <card.icon className="w-12 h-12 text-white" />
                 </motion.div>
                 <motion.h3
-                  className="text-xl font-bold text-white mb-2"
+                  className="text-xl font-bold text-white mb-2 font-serif"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.2 }}
@@ -267,7 +267,7 @@ const techStats = [
                   {card.title}
                 </motion.h3>
                 <motion.p
-                  className="text-gray-300"
+                  className="text-gray-300 font-light"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.3 }}
@@ -285,10 +285,10 @@ const techStats = [
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 z-10"
+            className="bg-white/5 rounded-2xl p-8 border border-white/10"
           >
             <motion.h3
-              className="text-2xl font-bold text-white mb-6 text-center"
+              className="text-2xl font-bold text-white mb-6 text-center font-serif italic"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -316,7 +316,7 @@ const techStats = [
                     <stat.icon className="w-10 h-10 text-white" />
                   </motion.div>
                   <motion.h4
-                    className="text-lg font-semibold text-white mb-2"
+                    className="text-lg font-semibold text-white mb-2 font-serif"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
@@ -324,7 +324,7 @@ const techStats = [
                     {stat.title}
                   </motion.h4>
                   <motion.p
-                    className="text-gray-300 text-xl font-bold"
+                    className="text-gray-300 text-xl font-bold font-mono"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.3 }}
@@ -343,10 +343,10 @@ const techStats = [
             whileHover="hover"
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 z-10 mt-8"
+            className="bg-white/5 rounded-2xl p-8 border border-white/10 mt-8"
           >
             <motion.h3
-              className="text-2xl font-bold text-white mb-4"
+              className="text-2xl font-bold text-white mb-4 font-serif italic"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -354,7 +354,7 @@ const techStats = [
               Let's Create Together
             </motion.h3>
             <motion.p
-              className="text-gray-300 mb-6"
+              className="text-gray-300 mb-6 font-light"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -362,7 +362,7 @@ const techStats = [
               I'm always excited to collaborate on new projects and bring innovative ideas to life.
             </motion.p>
             <motion.button
-              className="bg-gray-800 text-white px-6 py-3 rounded-full"
+              className="bg-gray-800 text-white px-6 py-3 rounded-full font-medium tracking-wide"
               whileHover={{ 
                 scale: 1.1, 
                 boxShadow: "0 0 15px rgba(255, 255, 255, 0.2)",

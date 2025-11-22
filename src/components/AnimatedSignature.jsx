@@ -55,10 +55,9 @@ const AnimatedSignature = () => {
 
   return (
     <motion.svg
-      width="300"
-      height="100"
       viewBox="0 0 300 100"
       initial="hidden"
+      className="w-[200px] sm:w-[300px] h-auto"
       style={{
         overflow: 'visible',
       }}
@@ -68,8 +67,9 @@ const AnimatedSignature = () => {
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        fontSize="36"
-        fontFamily="'Source Code Pro', monospace"
+        fontSize="48"
+        fontFamily="'Playfair Display', serif"
+        fontStyle="italic"
         fill="#ffffff"
         variants={textVariants}
         animate={controls}

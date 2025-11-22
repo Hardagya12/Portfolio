@@ -58,7 +58,7 @@ const ResumeShare = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32">
+    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-12 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -75,13 +75,13 @@ const ResumeShare = () => {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 w-full max-w-3xl sm:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="relative w-full max-w-3xl sm:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8 text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8 text-center font-serif italic"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
@@ -90,7 +90,7 @@ const ResumeShare = () => {
         </motion.h2>
 
         <motion.div
-          className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/10"
+          className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10"
           variants={imageVariants}
           initial="hidden"
           whileInView="visible"
@@ -98,7 +98,7 @@ const ResumeShare = () => {
           viewport={{ once: false, amount: 0.3 }}
         >
           {imageError ? (
-            <div className="text-red-400 text-center text-base sm:text-lg">
+            <div className="text-red-400 text-center text-base sm:text-lg font-light">
               <p>Failed to load resume image. Please check the file path or try refreshing.</p>
               <p className="mt-2">You can still download the resume below.</p>
             </div>
@@ -121,7 +121,7 @@ const ResumeShare = () => {
           <motion.a
             href={resumePDF}
             download="Hardagya_Rajput_Resume.pdf"
-            className="inline-flex items-center bg-gray-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base"
+            className="inline-flex items-center bg-gray-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium tracking-wide"
             variants={buttonVariants}
             initial="rest"
             whileHover="hover"

@@ -28,7 +28,7 @@
 body {
   background-color: #000000;
   color: #ffffff;
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Outfit', sans-serif;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -45,54 +45,14 @@ body {
   animation: gradient-shift 15s ease infinite;
 }
 
-/* Navbar Cylindrical Styling with Increased Width */
-.navbar {
-  position: fixed;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 66.666%; /* w-2/3 */
-  height: 48px; /* h-12 */
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid #ffffff; /* White stroke */
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 12px;
-  perspective: 1000px; /* 3D perspective */
-  z-index: 50;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+/* Custom Utilities */
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.navbar .flex {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  justify-content:left; /* Ensures PFP/Name at left, links at right */
-  padding: 0 6px;
-}
-
-/* Ensure text and links are styled */
-.navbar .text-gray-400 {
-  color: #9ca3af;
-  font-size: 0.875rem; /* text-sm */
-}
-
-.navbar .text-gray-400:hover {
-  color: #ffffff;
-}
-
-.navbar .bg-gray-800 {
-  background-color: #1f2937;
-}
-
-.navbar .bg-gray-800:hover {
-  background-color: #374151;
-}
-
-.navbar .text-white {
-  color: #ffffff;
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 /* General styles */
@@ -124,7 +84,7 @@ img.grayscale {
   filter: grayscale(100%);
 }
 
-/* Hide scrollbar */
+/* Hide scrollbar globally if needed, but keeping the specific utility above */
 body::-webkit-scrollbar {
   display: none;
 }
