@@ -8,7 +8,6 @@ const CustomCursor = () => {
     const updateCursor = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
       
-      
       const target = e.target;
       setIsPointer(
         window.getComputedStyle(target).cursor === 'pointer' ||
@@ -23,9 +22,9 @@ const CustomCursor = () => {
 
   return (
     <>
-      {}
+      {/* Main Cursor */}
       <div
-        className="fixed pointer-events-none z-50 mix-blend-difference"
+        className="fixed pointer-events-none z-[9999]"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
@@ -33,15 +32,15 @@ const CustomCursor = () => {
         }}
       >
         <div className={`
-          rounded-full bg-white
+          rounded-full bg-black border-2 border-white
           transition-all duration-100 ease-out
-          ${isPointer ? 'w-5 h-5' : 'w-3 h-3'}
+          ${isPointer ? 'w-6 h-6 bg-neo-primary' : 'w-4 h-4'}
         `} />
       </div>
       
-      {}
+      {/* Trailing Cursor */}
       <div
-        className="fixed pointer-events-none z-40 opacity-40"  
+        className="fixed pointer-events-none z-[9998]"  
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
@@ -49,9 +48,9 @@ const CustomCursor = () => {
         }}
       >
         <div className={`
-          rounded-full bg-white blur-lg    
+          rounded-full border-2 border-black
           transition-all duration-200 ease-out
-          ${isPointer ? 'w-20 h-20' : 'w-16 h-16'}  
+          ${isPointer ? 'w-12 h-12 opacity-50 bg-neo-accent' : 'w-8 h-8 opacity-30'}  
         `} />
       </div>
     </>

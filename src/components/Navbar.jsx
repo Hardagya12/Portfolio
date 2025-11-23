@@ -20,28 +20,28 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl h-14 z-[100] bg-black/60 backdrop-blur-xl border border-white/10 rounded-full px-2 sm:px-4 flex items-center justify-between shadow-lg shadow-purple-500/10">
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl h-16 z-[100] bg-neo-bg border-3 border-black px-2 sm:px-4 flex items-center justify-between shadow-neo">
       {/* Logo Section */}
       <div className="flex items-center gap-3 pl-2">
         <motion.div 
-          className="relative w-9 h-9 rounded-full overflow-hidden border border-white/20"
-          whileHover={{ scale: 1.1 }}
+          className="relative w-10 h-10 overflow-hidden border-2 border-black bg-neo-accent"
+          whileHover={{ scale: 1.1, rotate: 3 }}
         >
           <img src={pfp} alt="Profile" className="w-full h-full object-cover" />
         </motion.div>
-        <span className="text-white font-bold text-lg tracking-tight hidden sm:block font-serif italic">Hardagya</span>
+        <span className="text-black font-black text-xl tracking-tighter hidden sm:block font-sans uppercase">Hardagya</span>
       </div>
 
       {/* Desktop Navigation */}
       <div className="flex items-center gap-1 sm:gap-2 md:gap-6 pr-1 flex-1 justify-end min-w-0">
-        <div className="flex items-center gap-1 sm:gap-4 overflow-x-auto px-2 flex-nowrap scrollbar-none">
+        <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto px-2 flex-nowrap scrollbar-none">
           {navLinks.map((link) => (
             <motion.a
               key={link.name}
               href={`#${link.id}`}
               onClick={(e) => handleScroll(e, link.id)}
-              className="text-xs sm:text-sm text-gray-300 hover:text-white transition-colors whitespace-nowrap px-2 py-1 font-medium"
-              whileHover={{ scale: 1.05, color: "#fff" }}
+              className="text-xs sm:text-sm text-black hover:bg-neo-primary hover:text-white transition-none border-2 border-transparent hover:border-black px-3 py-1 font-bold uppercase"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {link.name}
@@ -52,7 +52,7 @@ const Navbar = () => {
         <motion.a
           href="#contact"
           onClick={(e) => handleScroll(e, 'contact')}
-          className="bg-white text-black px-4 py-2 rounded-full text-xs sm:text-sm font-bold hover:bg-gray-200 transition-colors whitespace-nowrap shrink-0 ml-2"
+          className="bg-neo-secondary text-black border-2 border-black shadow-neo-sm px-4 py-2 text-xs sm:text-sm font-bold hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all whitespace-nowrap shrink-0 ml-2 uppercase"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
-import pixabayclone from '../images/pixabay.png';
+import { NeoSparkle, NeoSquare } from './NeoIcons';
+
+import pixabayclone from '../images/pixabayclone.png';
 import salesforce from '../images/salesforce.png';
 import etsy from '../images/etsy.png';
 import environment from '../images/environment.png';
-import cssBasic from '../images/certificates/cssBasic.png';
+
+import cssBasic from '../images/certificates/cssbasic.png';
 import javascriptbasic from '../images/certificates/jsbasic.png';
 import reactbasic from '../images/certificates/reactbasic.png';
 import nodebasic from '../images/certificates/nodebasic.png';
@@ -15,7 +18,6 @@ import psintermediate from '../images/certificates/psintermediate.png';
 import restapiintermediate from '../images/certificates/restapiintermediate.png';
 
 const projects = [
-
   {
     title: "Bright Board",
     description: "Bright Board is a digital classroom platform that enables institutes to manage attendance, reports, study materials, exams, and feedback seamlessly.",
@@ -24,7 +26,6 @@ const projects = [
     github: "https://github.com/Hardagya12/bright_board",
     live: "https://brightboard-seven.vercel.app/"
   },
-
   {
     title : "Stock Master",
     description : "Stock Master is a web application that helps users track and manage their stock portfolio, providing insights and recommendations for optimal investment strategies.",
@@ -33,7 +34,7 @@ const projects = [
     github : "https://github.com/Hardagya12/Odoo-StockMaster",
     live : "https://odoo-stock-master.vercel.app/"
   },
-    {
+  {
     title: "Culinary and Charms",
     description: "Culinary and Charms is a unique explorer platform where users can discover delicious meals and cocktail recipes, dive into the magical world of Harry Potter, and even fetch real-time bank details using IFSC codes.",
     image: "https://media.istockphoto.com/id/2166320051/photo/api-application-programming-interface-concept-a-programmer-types-on-a-laptop-interacting-with.jpg?s=612x612&w=0&k=20&c=f2Q5qzL9JX8f_wKkUT4FcGKVFgitrWYZaJyecKiLsAg=",
@@ -89,7 +90,7 @@ const certificates = [
     verification: "https://www.hackerrank.com/certificates/c7f6f6ccf1eb",
     tags: ["JavaScript Basic"]
   },
-    {
+  {
     title: "React Basic",
     issuer: "HackerRank",
     image: reactbasic,
@@ -175,7 +176,7 @@ const Projects = () => {
     hover: {
       scale: 1.05,
       rotateY: 5,
-      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      boxShadow: "10px 10px 0px 0px rgba(0,0,0,1)",
       transition: {
         type: "spring",
         stiffness: 300,
@@ -201,7 +202,7 @@ const Projects = () => {
     }),
     hover: {
       scale: 1.15,
-      boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.3)",
+      boxShadow: "10px 10px 0px 0px rgba(0,0,0,1)",
       transition: {
         type: "spring",
         stiffness: 400,
@@ -217,43 +218,31 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden py-12" style={{ fontFamily: 'Outfit, sans-serif' }}>
+    <div className="bg-neo-bg relative overflow-hidden py-8 md:py-12" style={{ fontFamily: 'Outfit, sans-serif' }}>
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-white/30 origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-2 bg-neo-primary origin-left z-50 border-b-2 border-black"
         style={{ scaleX: scaleProgress }}
       />
 
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white/30 rounded-full"
-            initial={{ 
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              scale: 0
-            }}
-            animate={{
-              y: [null, -20, 20],
-              x: [null, -20, 20],
-              scale: [0, 1, 0],
-              opacity: [0, 0.8, 0]
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut"
-            }}
-          />
-        ))}
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }}
+      />
+
+      {/* Floating Icons */}
+      <div className="absolute top-20 right-10 hidden lg:block">
+        <NeoSparkle size={70} color="#FFE66D" className="drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]" />
+      </div>
+      <div className="absolute bottom-40 left-10 hidden lg:block">
+        <NeoSquare size={40} color="#4ECDC4" className="shadow-neo" />
       </div>
 
-      {/* Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Projects Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -261,7 +250,7 @@ const Projects = () => {
           className="text-center mb-12"
         >
           <motion.h2 
-            className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 italic"
+            className="text-5xl md:text-6xl font-black text-black mb-4 uppercase tracking-tighter drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -274,7 +263,7 @@ const Projects = () => {
             Projects
           </motion.h2>
           <motion.p 
-            className="text-gray-400 max-w-2xl mx-auto font-light"
+            className="text-black max-w-2xl mx-auto font-bold bg-neo-accent inline-block px-4 py-1 border-2 border-black shadow-neo-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -288,13 +277,13 @@ const Projects = () => {
           {allTags.map((tag) => (
             <motion.button
               key={tag}
-              className={`px-4 py-2 rounded-full text-sm transition-colors duration-300 font-medium tracking-wide ${
+              className={`px-4 py-2 border-2 border-black text-sm transition-all duration-300 font-bold tracking-wide shadow-neo-sm ${
                 selectedTag === tag
-                  ? 'bg-white text-black'
-                  : 'bg-gray-800 text-white hover:bg-gray-700'
+                  ? 'bg-black text-white'
+                  : 'bg-white text-black hover:bg-neo-primary hover:text-white'
               }`}
               onClick={() => setSelectedTag(tag)}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05, boxShadow: "0px 0px 0px 0px rgba(0,0,0,1)", translate: "2px 2px" }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -306,7 +295,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -316,10 +305,10 @@ const Projects = () => {
               whileInView="visible"
               whileHover="hover"
               viewport={{ once: true, amount: 0.2 }}
-              className="bg-white/5 rounded-xl overflow-hidden border border-white/10 flex flex-col h-full"
+              className="bg-white rounded-none overflow-hidden border-3 border-black shadow-neo flex flex-col h-full"
             >
               <motion.div 
-                className="relative h-48 md:h-64 overflow-hidden shrink-0"
+                className="relative h-48 md:h-64 overflow-hidden shrink-0 border-b-3 border-black"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
@@ -329,7 +318,7 @@ const Projects = () => {
                   className="w-full h-full object-cover"
                 />
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
+                  className="absolute inset-0 bg-black/20"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -338,7 +327,7 @@ const Projects = () => {
 
               <div className="p-6 flex flex-col flex-grow">
                 <motion.h3 
-                  className="text-xl md:text-2xl font-bold text-white mb-2 font-serif"
+                  className="text-xl md:text-2xl font-black text-black mb-2 uppercase"
                   initial={{ x: -20, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -346,7 +335,7 @@ const Projects = () => {
                   {project.title}
                 </motion.h3>
                 <motion.p 
-                  className="text-gray-400 mb-4 text-sm md:text-base flex-grow font-light"
+                  className="text-black mb-4 text-sm md:text-base flex-grow font-medium"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
@@ -362,7 +351,7 @@ const Projects = () => {
                       initial="initial"
                       animate="animate"
                       whileHover="hover"
-                      className="px-3 py-1 bg-white/10 rounded-full text-xs md:text-sm text-white font-mono"
+                      className="px-3 py-1 bg-neo-accent border-2 border-black text-xs md:text-sm text-black font-bold"
                       style={{ originX: 0 }}
                       transition={{ delay: tagIndex * 0.1 }}
                     >
@@ -375,8 +364,8 @@ const Projects = () => {
                   {project.github && (
                     <motion.a
                       href={project.github}
-                      className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm md:text-base"
-                      whileHover={{ scale: 1.1, x: 5 }}
+                      className="flex items-center gap-2 bg-black text-white px-4 py-2 font-bold border-2 border-transparent hover:bg-white hover:text-black hover:border-black transition-all shadow-neo-sm"
+                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github size={20} />
@@ -385,8 +374,8 @@ const Projects = () => {
                   )}
                   <motion.a
                     href={project.live}
-                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm md:text-base"
-                    whileHover={{ scale: 1.1, x: 5 }}
+                    className="flex items-center gap-2 bg-neo-primary text-black px-4 py-2 font-bold border-2 border-black shadow-neo-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <ExternalLink size={20} />
@@ -406,7 +395,7 @@ const Projects = () => {
           className="text-center mb-12"
         >
           <motion.h2 
-            className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 italic"
+            className="text-5xl md:text-6xl font-black text-black mb-4 uppercase tracking-tighter drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -419,7 +408,7 @@ const Projects = () => {
             Certificates
           </motion.h2>
           <motion.p 
-            className="text-gray-400 max-w-2xl mx-auto font-light"
+            className="text-black max-w-2xl mx-auto font-bold bg-neo-green inline-block px-4 py-1 border-2 border-black shadow-neo-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -443,11 +432,11 @@ const Projects = () => {
                 animate="visible"
                 whileHover="hover"
                 viewport={{ once: false, amount: 0.4 }}
-                className="bg-white/5 rounded-xl overflow-hidden border border-white/10 flex-1"
+                className="bg-white rounded-none overflow-hidden border-3 border-black flex-1 shadow-neo"
                 style={{ maxWidth: '320px' }}
               >
                 <motion.div 
-                  className="relative h-40 overflow-hidden"
+                  className="relative h-40 overflow-hidden border-b-3 border-black"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -456,17 +445,11 @@ const Projects = () => {
                     alt={certificate.title}
                     className="w-full h-full object-cover"
                   />
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
                 </motion.div>
 
                 <div className="p-4">
                   <motion.p 
-                    className="text-gray-400 mb-3 text-sm"
+                    className="text-black mb-3 text-sm font-bold"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
@@ -481,7 +464,7 @@ const Projects = () => {
                         initial="initial"
                         animate="animate"
                         whileHover="hover"
-                        className="px-2 py-1 bg-white/10 rounded-full text-xs text-white font-mono"
+                        className="px-2 py-1 bg-neo-purple border-2 border-black text-xs text-black font-bold"
                         style={{ originX: 0 }}
                         transition={{ delay: tagIndex * 0.1 }}
                       >
@@ -491,7 +474,7 @@ const Projects = () => {
                   </div>
                   <motion.a
                     href={certificate.verification}
-                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-black hover:text-neo-primary transition-colors font-bold"
                     whileHover={{ scale: 1.1, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -505,7 +488,7 @@ const Projects = () => {
           <div className="flex justify-between mt-6 px-2">
             <motion.button
               onClick={handleCertPrev}
-              className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+              className="p-2 bg-white border-2 border-black text-black rounded-full hover:bg-neo-accent shadow-neo-sm"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -513,7 +496,7 @@ const Projects = () => {
             </motion.button>
             <motion.button
               onClick={handleCertNext}
-              className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+              className="p-2 bg-white border-2 border-black text-black rounded-full hover:bg-neo-accent shadow-neo-sm"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >

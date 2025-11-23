@@ -24,10 +24,10 @@
   box-sizing: border-box;
 }
 
-/* Apply black background to the entire app */
+/* Apply neobrutalism background to the entire app */
 body {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #FFFDF5;
+  color: #000000;
   font-family: 'Outfit', sans-serif;
   overflow-y: auto;
   overflow-x: hidden;

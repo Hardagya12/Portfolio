@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
-
-// Directly import the image and PDF
 import resumeImage from '../assets/Hardagya Rajput.jpg';
 import resumePDF from '../assets/Hardagya Rajput Resume.pdf';
 
@@ -33,7 +31,9 @@ const ResumeShare = () => {
       },
     },
     hover: {
-      scale: 1.05,
+      scale: 1.02,
+      rotate: 2,
+      boxShadow: "8px 8px 0px 0px rgba(0,0,0,1)",
       transition: { duration: 0.3 },
     },
   };
@@ -41,8 +41,9 @@ const ResumeShare = () => {
   const buttonVariants = {
     rest: { scale: 1 },
     hover: {
-      scale: 1.1,
-      boxShadow: '0 0 15px rgba(255, 255, 255, 0.2)',
+      scale: 1.05,
+      boxShadow: "0px 0px 0px 0px rgba(0,0,0,1)",
+      translate: "2px 2px",
       transition: { duration: 0.3 },
     },
     tap: { scale: 0.95 },
@@ -58,30 +59,26 @@ const ResumeShare = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-12 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        />
-      </div>
+    <div className="bg-neo-bg relative overflow-hidden flex flex-col items-center justify-center py-12 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }}
+      />
 
       {/* Content */}
       <motion.div
         className="relative w-full max-w-3xl sm:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true }}
       >
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8 text-center font-serif italic"
+          className="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-6 sm:mb-8 text-center uppercase tracking-tighter drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
@@ -90,7 +87,7 @@ const ResumeShare = () => {
         </motion.h2>
 
         <motion.div
-          className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10"
+          className="bg-white p-2 border-3 border-black shadow-neo"
           variants={imageVariants}
           initial="hidden"
           whileInView="visible"
@@ -98,7 +95,7 @@ const ResumeShare = () => {
           viewport={{ once: false, amount: 0.3 }}
         >
           {imageError ? (
-            <div className="text-red-400 text-center text-base sm:text-lg font-light">
+            <div className="text-red-500 text-center text-base sm:text-lg font-bold p-8">
               <p>Failed to load resume image. Please check the file path or try refreshing.</p>
               <p className="mt-2">You can still download the resume below.</p>
             </div>
@@ -106,14 +103,14 @@ const ResumeShare = () => {
             <img
               src={resumeImage}
               alt="Hardagya Rajput's Resume"
-              className="w-full max-w-2xl sm:max-w-3xl mx-auto rounded-lg shadow-lg"
+              className="w-full max-w-2xl sm:max-w-3xl mx-auto border-2 border-black"
               onError={handleImageError}
             />
           )}
         </motion.div>
 
         <motion.div
-          className="mt-6 sm:mt-8 text-center"
+          className="mt-8 sm:mt-10 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -121,13 +118,13 @@ const ResumeShare = () => {
           <motion.a
             href={resumePDF}
             download="Hardagya_Rajput_Resume.pdf"
-            className="inline-flex items-center bg-gray-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium tracking-wide"
+            className="inline-flex items-center bg-neo-primary text-black px-6 py-3 border-2 border-black shadow-neo-sm font-bold uppercase tracking-wide"
             variants={buttonVariants}
             initial="rest"
             whileHover="hover"
             whileTap="tap"
           >
-            <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+            <Download className="w-5 h-5 mr-2" />
             Download Resume
           </motion.a>
         </motion.div>

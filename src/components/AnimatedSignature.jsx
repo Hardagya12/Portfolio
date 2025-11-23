@@ -70,7 +70,7 @@ const AnimatedSignature = () => {
         fontSize="48"
         fontFamily="'Playfair Display', serif"
         fontStyle="italic"
-        fill="#ffffff"
+        fill="#000000"
         variants={textVariants}
         animate={controls}
       >

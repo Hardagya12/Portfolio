@@ -18,25 +18,25 @@ function App() {
       <Cursor />
       <div className="app-container relative flex flex-col cursor-none">
         <Navbar />
-        <section id="home" className="pt-16">
+        <section id="home">
           <Hero />
         </section>
-        <section id="about" className="pt-16">
+        <section id="about">
           <AboutMe />
         </section>
-        <section id="journey" className="pt-16">
+        <section id="journey">
           <Journey />
         </section>
-        <section id="projects" className="pt-16">
+        <section id="projects">
           <Projects />
         </section>
-        <section id="opensource" className="pt-16">
+        <section id="opensource">
           <OpenSourceContribution />
         </section>
-        <section id="resume" className="pt-16">
+        <section id="resume">
           <Resume />
         </section>
-        <section id="contact" className="pt-16">
+        <section id="contact">
           <Contact />
         </section>
       </div>

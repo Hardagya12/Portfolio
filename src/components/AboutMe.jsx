@@ -1,28 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Code2, BarChart2, } from 'lucide-react';
-import {
-  Atom,
-  Server,
-  Database,
-  Github,
-  Palette,
-  PenTool,
-  FileCode2,
-  Braces,
-  TerminalSquare,   // General programming or command line
-  Globe,            // Web deployments / hosting
-  Layers,           // MERN stack or full-stack
-  Settings2,        // API / backend tools
-  BookOpen,         // Documentation / learning
-  GitBranch,        // Version control / Git
-  ShieldCheck,      // Security / Auth
-  LayoutDashboard,  // Dashboards
-       // Deployment
-  Languages,        // Programming languages
-} from "lucide-react";
-
-import pfp from '../images/pfpwithoutbg.png';
+import { 
+  GraduationCap, Code2, BarChart2, Layers, Atom, Server, Database, 
+  FileCode2, Braces, Palette, PenTool, Github, ShieldCheck, Settings2, 
+  Languages, Globe, BookOpen 
+} from 'lucide-react';
+import pfp from '../images/pfp.png';
+import { NeoSpiral, NeoStar, NeoCross } from './NeoIcons';
 
 const AboutMe = () => {
   const cards = [
@@ -42,74 +26,24 @@ const AboutMe = () => {
       description: "Completed 3+ Projects",
     },
   ];
-const techStats = [
-    {
-    icon: Layers,
-    title: "Full-Stack MERN Apps",
-  },
-  {
-    icon: Atom,
-    title: "React.js",
-  },
-  {
-    icon: Server,
-    title: "Node.js",
-  },
-  {
-    icon: Database,
-    title: "MongoDB",
-  },
-  {
-    icon: Code2,
-    title: "JavaScript",
-  },
-  {
-    icon: FileCode2,
-    title: "HTML",
-  },
-  {
-    icon: Braces,
-    title: "CSS",
-  },
-  {
-    icon: Palette,
-    title: "Tailwind CSS & MUI",
-  },
-  {
-    icon: PenTool,
-    title: "Figma UI Designs",
-  },
-  {
-    icon: Github,
-    title: "Git and GitHub ",
-  },
 
-  {
-    icon: ShieldCheck,
-    title: "JWT Auth & Security",
-  },
-  {
-    icon: Settings2,
-    title: "REST APIs",
-  },
-
-
-
-  {
-    icon: Languages,
-    title: "C, C++, JavaScript",
-  },
-  {
-    icon: Globe,
-    title: " Deployment (Render, Vercel, Netlify , Firebase)",
-  },
-
-  {
-    icon: BookOpen,
-    title: "API Docs (Postman)",
-  },
-];
-
+  const techStats = [
+    { icon: Layers, title: "Full-Stack MERN Apps", value: "3+" },
+    { icon: Atom, title: "React.js", value: "Advanced" },
+    { icon: Server, title: "Node.js", value: "Intermediate" },
+    { icon: Database, title: "MongoDB", value: "Intermediate" },
+    { icon: Code2, title: "JavaScript", value: "Advanced" },
+    { icon: FileCode2, title: "HTML", value: "Advanced" },
+    { icon: Braces, title: "CSS", value: "Advanced" },
+    { icon: Palette, title: "Tailwind CSS & MUI", value: "Advanced" },
+    { icon: PenTool, title: "Figma UI Designs", value: "Intermediate" },
+    { icon: Github, title: "Git and GitHub", value: "Advanced" },
+    { icon: ShieldCheck, title: "JWT Auth & Security", value: "Intermediate" },
+    { icon: Settings2, title: "REST APIs", value: "Advanced" },
+    { icon: Languages, title: "C, C++, JavaScript", value: "Advanced" },
+    { icon: Globe, title: "Deployment", value: "Render, Vercel, Netlify" },
+    { icon: BookOpen, title: "API Docs", value: "Postman" },
+  ];
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 100 },
@@ -126,8 +60,8 @@ const techStats = [
     },
     hover: { 
       scale: 1.05, 
-      borderColor: "rgba(255, 255, 255, 0.3)",
-      boxShadow: "0 10px 30px rgba(255, 255, 255, 0.1)",
+      boxShadow: "5px 5px 0px 0px rgba(0,0,0,1)",
+      translate: " -2px -2px"
     }
   };
 
@@ -158,23 +92,31 @@ const techStats = [
     },
     hover: { 
       scale: 1.05,
+      rotate: 3,
       transition: { duration: 0.3 }
     }
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-20">
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-72 h-72 bg-gray-800/20 rounded-full blur-3xl pointer-events-none"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gray-700/20 rounded-full blur-3xl pointer-events-none"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
+    <div className="min-h-screen bg-neo-bg relative overflow-hidden flex flex-col items-center justify-center py-12 md:py-20">
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }}
+      />
+
+      {/* Floating Icons */}
+      <div className="absolute top-10 left-10 hidden md:block">
+        <NeoSpiral size={60} color="#A78BFA" />
+      </div>
+      <div className="absolute bottom-20 right-10 hidden md:block">
+        <NeoStar size={50} color="#FF6B6B" className="drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]" />
+      </div>
+      <div className="absolute top-1/2 left-4 opacity-50">
+        <NeoCross size={30} />
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -186,7 +128,7 @@ const techStats = [
           className="text-center mb-12"
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 italic"
+            className="text-5xl md:text-6xl font-black text-black mb-4 uppercase tracking-tighter drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             initial={{ scale: 0.8 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -204,7 +146,7 @@ const techStats = [
             whileHover="hover"
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/5 rounded-2xl p-6 md:p-12 border border-white/10 lg:max-w-4xl mx-auto"
+            className="bg-white rounded-none p-6 md:p-12 border-3 border-black shadow-neo lg:max-w-4xl mx-auto"
           >
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <motion.img
@@ -215,11 +157,11 @@ const techStats = [
                 whileInView="visible"
                 whileHover="hover"
                 viewport={{ once: false, amount: 0.3 }}
-                className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-2 border-white/20 shrink-0"
+                className="w-32 h-32 md:w-48 md:h-48 rounded-none object-cover border-3 border-black shadow-neo-sm shrink-0 bg-neo-accent"
               />
               <div className="flex-1 text-center md:text-left">
                 <motion.h3
-                  className="text-2xl md:text-3xl font-serif italic font-bold text-white mb-4 md:mb-6"
+                  className="text-2xl md:text-3xl font-bold text-black mb-4 md:mb-6 uppercase"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -227,7 +169,7 @@ const techStats = [
                   Who am I?
                 </motion.h3>
                 <motion.p
-                  className="text-gray-300 leading-relaxed text-base md:text-lg font-sans font-light"
+                  className="text-black leading-relaxed text-base md:text-lg font-medium"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
@@ -248,18 +190,18 @@ const techStats = [
                 whileHover="hover"
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white/5 rounded-2xl p-8 border border-white/10"
+                className="bg-neo-secondary rounded-none p-8 border-3 border-black shadow-neo"
               >
                 <motion.div
                   variants={iconVariants}
                   initial="rest"
                   whileHover="hover"
-                  className="mb-4"
+                  className="mb-4 bg-white border-2 border-black w-16 h-16 flex items-center justify-center shadow-neo-sm"
                 >
-                  <card.icon className="w-12 h-12 text-white" />
+                  <card.icon className="w-8 h-8 text-black" />
                 </motion.div>
                 <motion.h3
-                  className="text-xl font-bold text-white mb-2 font-serif"
+                  className="text-xl font-bold text-black mb-2 font-sans uppercase"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.2 }}
@@ -267,7 +209,7 @@ const techStats = [
                   {card.title}
                 </motion.h3>
                 <motion.p
-                  className="text-gray-300 font-light"
+                  className="text-black font-medium"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.3 }}
@@ -285,10 +227,10 @@ const techStats = [
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/5 rounded-2xl p-8 border border-white/10"
+            className="bg-white rounded-none p-8 border-3 border-black shadow-neo"
           >
             <motion.h3
-              className="text-2xl font-bold text-white mb-6 text-center font-serif italic"
+              className="text-2xl font-black text-black mb-6 text-center uppercase"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -305,7 +247,7 @@ const techStats = [
                   whileHover="hover"
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="bg-white/10 rounded-xl p-6 flex flex-col items-center"
+                  className="bg-neo-bg border-2 border-black p-6 flex flex-col items-center hover:shadow-neo-sm transition-all"
                 >
                   <motion.div
                     variants={iconVariants}
@@ -313,10 +255,10 @@ const techStats = [
                     whileHover="hover"
                     className="mb-4"
                   >
-                    <stat.icon className="w-10 h-10 text-white" />
+                    <stat.icon className="w-10 h-10 text-black" />
                   </motion.div>
                   <motion.h4
-                    className="text-lg font-semibold text-white mb-2 font-serif"
+                    className="text-lg font-bold text-black mb-2 text-center"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
@@ -324,7 +266,7 @@ const techStats = [
                     {stat.title}
                   </motion.h4>
                   <motion.p
-                    className="text-gray-300 text-xl font-bold font-mono"
+                    className="text-black text-xl font-bold font-mono"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.3 }}
@@ -343,10 +285,10 @@ const techStats = [
             whileHover="hover"
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/5 rounded-2xl p-8 border border-white/10 mt-8"
+            className="bg-neo-primary rounded-none p-8 border-3 border-black shadow-neo mt-8 text-center"
           >
             <motion.h3
-              className="text-2xl font-bold text-white mb-4 font-serif italic"
+              className="text-2xl font-black text-black mb-4 uppercase"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -354,7 +296,7 @@ const techStats = [
               Let's Create Together
             </motion.h3>
             <motion.p
-              className="text-gray-300 mb-6 font-light"
+              className="text-black mb-6 font-bold"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -362,14 +304,11 @@ const techStats = [
               I'm always excited to collaborate on new projects and bring innovative ideas to life.
             </motion.p>
             <motion.button
-              className="bg-gray-800 text-white px-6 py-3 rounded-full font-medium tracking-wide"
+              className="bg-white text-black border-2 border-black px-6 py-3 font-bold tracking-wide shadow-neo-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
               whileHover={{ 
-                scale: 1.1, 
-                boxShadow: "0 0 15px rgba(255, 255, 255, 0.2)",
-                backgroundColor: "#374151"
+                scale: 1.05, 
               }}
               whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3 }}
             >
               Get in Touch
             </motion.button>

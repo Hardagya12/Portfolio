@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Instagram, Github } from 'lucide-react';
+import { NeoCircle, NeoCross } from './NeoIcons';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -78,37 +79,22 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden py-12 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/3 left-1/3 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-            rotate: [0, 180, 0]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 right-1/3 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-            rotate: [0, -180, 0]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-        />
+    <div className="bg-neo-bg relative overflow-hidden py-8 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }}
+      />
+
+      {/* Floating Icons */}
+      <div className="absolute top-20 left-10 hidden md:block">
+        <NeoCircle size={40} color="#FF6B6B" className="shadow-neo" />
+      </div>
+      <div className="absolute bottom-20 right-10 hidden md:block">
+        <NeoCross size={50} color="#000" />
       </div>
 
       {/* Content */}
@@ -116,14 +102,15 @@ const Contact = () => {
         className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true }}
       >
         <motion.div
           className="text-center mb-12"
           variants={itemVariants}
         >
           <motion.h2 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 font-serif italic"
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-black mb-4 uppercase tracking-tighter drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -136,7 +123,7 @@ const Contact = () => {
             Let's Connect
           </motion.h2>
           <motion.p 
-            className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto font-light"
+            className="text-black text-base sm:text-lg max-w-2xl mx-auto font-bold bg-neo-accent inline-block px-4 py-1 border-2 border-black shadow-neo-sm"
             variants={itemVariants}
           >
             Have a project in mind? Let's discuss how we can work together
@@ -145,7 +132,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
-          <motion.div variants={containerVariants}>
+          <motion.div variants={containerVariants} className="bg-white p-8 border-3 border-black shadow-neo">
             <div className="space-y-6 sm:space-y-8">
               {[
                 { icon: Mail, title: "Email", info: "rajputhardagya@gmail.com", href: "mailto:rajputhardagya@gmail.com" },
@@ -153,7 +140,7 @@ const Contact = () => {
                 { icon: MapPin, title: "Location", info: "Ahmedabad, Gujarat" },
                 { icon: Linkedin, title: "LinkedIn", info: "Hardagya Rajput", href: "https://www.linkedin.com/in/hardagya-rajput/" },
                 { icon: Twitter, title: "X", info: "@hardagya", href: "https://x.com/hardagya" },
-                { icon: Instagram, title: "Instagram", info: "@hardagya_1211", href: "https://www.instagram.com/hardagya_1211/" },
+                { icon: Instagram, title: "Instagram", info: "@hardagya", href: "https://www.instagram.com/hardagya/" },
                 { icon: Github, title: "GitHub", info: "hardagya", href: "https://github.com/Hardagya12" }
               ].map((item, index) => (
                 <motion.div
@@ -163,19 +150,19 @@ const Contact = () => {
                   whileHover={{ x: 10 }}
                 >
                   <motion.div
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-neo-secondary border-2 border-black flex items-center justify-center shadow-neo-sm"
                     variants={iconVariants}
                     whileHover="hover"
                   >
-                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                   </motion.div>
                   <div>
                     <motion.h3 
-                      className="text-white font-semibold text-sm sm:text-base font-serif"
+                      className="text-black font-bold text-sm sm:text-base uppercase"
                       whileHover={{ scale: 1.05 }}
                     >
                       {item.href ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-neo-primary transition-colors">
                           {item.title}
                         </a>
                       ) : (
@@ -183,11 +170,11 @@ const Contact = () => {
                       )}
                     </motion.h3>
                     <motion.p 
-                      className="text-gray-400 text-sm sm:text-base font-light"
-                      whileHover={{ color: "#ffffff" }}
+                      className="text-black text-sm sm:text-base font-medium"
+                      whileHover={{ color: "#000000" }}
                     >
                       {item.href ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-neo-primary transition-colors">
                           {item.info}
                         </a>
                       ) : (
@@ -201,7 +188,7 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div variants={containerVariants}>
+          <motion.div variants={containerVariants} className="bg-neo-primary p-8 border-3 border-black shadow-neo">
             <motion.form 
               onSubmit={handleSubmit} 
               className="space-y-6"
@@ -216,7 +203,7 @@ const Contact = () => {
                   variants={formItemVariants}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <label htmlFor={field.name} className="block text-white mb-2 text-sm sm:text-base font-medium">
+                  <label htmlFor={field.name} className="block text-black mb-2 text-sm sm:text-base font-bold uppercase">
                     {field.label}
                   </label>
                   <motion.input
@@ -225,8 +212,8 @@ const Contact = () => {
                     name={field.name}
                     value={formData[field.name]}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-white/30 font-light"
-                    whileFocus={{ scale: 1.02 }}
+                    className="w-full px-4 py-2 sm:py-3 bg-white border-2 border-black text-black focus:outline-none focus:shadow-neo-sm font-medium placeholder-gray-500"
+                    whileFocus={{ scale: 1.02, boxShadow: "4px 4px 0px 0px rgba(0,0,0,1)" }}
                     required
                   />
                 </motion.div>
@@ -236,7 +223,7 @@ const Contact = () => {
                 variants={formItemVariants}
                 whileHover={{ scale: 1.02 }}
               >
-                <label htmlFor="message" className="block text-white mb-2 text-sm sm:text-base font-medium">
+                <label htmlFor="message" className="block text-black mb-2 text-sm sm:text-base font-bold uppercase">
                   Message
                 </label>
                 <motion.textarea
@@ -245,18 +232,19 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-white/30 font-light"
-                  whileFocus={{ scale: 1.02 }}
+                  className="w-full px-4 py-2 sm:py-3 bg-white border-2 border-black text-black focus:outline-none focus:shadow-neo-sm font-medium placeholder-gray-500"
+                  whileFocus={{ scale: 1.02, boxShadow: "4px 4px 0px 0px rgba(0,0,0,1)" }}
                   required
                 />
               </motion.div>
 
               <motion.button
                 type="submit"
-                className="w-full flex items-center justify-center space-x-2 px-6 py-2 sm:py-3 bg-white text-black rounded-lg font-semibold hover:bg-white/90 transition-colors tracking-wide"
+                className="w-full flex items-center justify-center space-x-2 px-6 py-2 sm:py-3 bg-black text-white border-2 border-transparent hover:bg-white hover:text-black hover:border-black transition-all shadow-neo-sm font-bold uppercase tracking-wide"
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)"
+                  boxShadow: "0px 0px 0px 0px rgba(0,0,0,1)",
+                  translate: "2px 2px"
                 }}
                 whileTap={{ scale: 0.95 }}
                 animate={controls}

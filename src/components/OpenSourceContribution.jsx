@@ -28,8 +28,8 @@ const OpenSourceContribution = () => {
     },
     hover: { 
       scale: 1.05, 
-      borderColor: "rgba(255, 255, 255, 0.3)",
-      boxShadow: "0 10px 30px rgba(255, 255, 255, 0.1)",
+      boxShadow: "8px 8px 0px 0px rgba(0,0,0,1)",
+      translate: "-2px -2px"
     }
   };
 
@@ -65,19 +65,15 @@ const OpenSourceContribution = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col items-center justify-center py-12 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 bg-gray-800/20 rounded-full blur-3xl pointer-events-none"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gray-700/20 rounded-full blur-3xl pointer-events-none"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+    <div className="bg-neo-bg relative overflow-hidden flex flex-col items-center justify-center py-8 sm:py-16 md:py-20" style={{ fontFamily: 'Outfit, sans-serif' }}>
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }}
+      />
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -88,7 +84,7 @@ const OpenSourceContribution = () => {
           className="text-center mb-12"
         >
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-serif italic"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 uppercase tracking-tighter drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             initial={{ scale: 0.8 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -97,7 +93,7 @@ const OpenSourceContribution = () => {
             Open Source Contributions
           </motion.h2>
           <motion.p
-            className="text-gray-300 text-base sm:text-lg md:text-lg max-w-2xl mx-auto font-light"
+            className="text-black text-base sm:text-lg md:text-lg max-w-2xl mx-auto font-bold bg-neo-accent inline-block px-4 py-1 border-2 border-black shadow-neo-sm"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -116,20 +112,24 @@ const OpenSourceContribution = () => {
               whileHover="hover"
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10"
+              className="bg-white rounded-none p-6 sm:p-8 border-3 border-black shadow-neo"
             >
-              <motion.img
-                src={contribution.image}
-                alt={contribution.title}
-                variants={imageVariants}
-                initial="hidden"
-                whileInView="visible"
-                whileHover="hover"
-                viewport={{ once: false, amount: 0.3 }}
-                className="w-full h-40 sm:h-44 md:h-48 object-cover rounded-lg mb-4"
-              />
+              <motion.div
+                className="border-3 border-black shadow-neo-sm mb-4 overflow-hidden bg-neo-secondary"
+              >
+                <motion.img
+                  src={contribution.image}
+                  alt={contribution.title}
+                  variants={imageVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  whileHover="hover"
+                  viewport={{ once: false, amount: 0.3 }}
+                  className="w-full h-40 sm:h-44 md:h-48 object-cover"
+                />
+              </motion.div>
               <motion.h3
-                className="text-lg sm:text-xl font-bold text-white mb-3 font-serif"
+                className="text-lg sm:text-xl font-black text-black mb-3 uppercase"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
@@ -137,7 +137,7 @@ const OpenSourceContribution = () => {
                 {contribution.title}
               </motion.h3>
               <motion.p
-                className="text-gray-300 text-sm sm:text-base mb-4 font-light"
+                className="text-black text-sm sm:text-base mb-4 font-medium"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
@@ -149,8 +149,8 @@ const OpenSourceContribution = () => {
                   href={contribution.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm sm:text-base font-medium"
-                  whileHover={{ scale: 1.1 }}
+                  className="flex items-center gap-2 bg-black text-white px-3 py-2 font-bold border-2 border-transparent hover:bg-white hover:text-black hover:border-black transition-all shadow-neo-sm text-sm sm:text-base"
+                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div variants={iconVariants} initial="rest" whileHover="hover">
@@ -162,8 +162,8 @@ const OpenSourceContribution = () => {
                   href={contribution.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm sm:text-base font-medium"
-                  whileHover={{ scale: 1.1 }}
+                  className="flex items-center gap-2 bg-neo-primary text-black px-3 py-2 font-bold border-2 border-black shadow-neo-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all text-sm sm:text-base"
+                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div variants={iconVariants} initial="rest" whileHover="hover">

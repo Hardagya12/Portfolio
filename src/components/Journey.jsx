@@ -1,6 +1,7 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Book, Code, GraduationCap, Laptop } from 'lucide-react'; // Icons for each milestone
+import { motion } from 'framer-motion';
+import { Book, Code, GraduationCap, Laptop } from 'lucide-react';
+import { NeoStar, NeoSpiral } from './NeoIcons';
 
 const timelineData = [
   {
@@ -38,10 +39,6 @@ const timelineData = [
 ];
 
 const Journey = () => {
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -90,44 +87,25 @@ const Journey = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden py-16" style={{ fontFamily: 'Outfit, sans-serif' }}>
-      {/* Enhanced Dynamic Background */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-            rotate: [0, -90, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-          }}
-        />
+    <div className="bg-neo-bg relative overflow-hidden py-10 md:py-16" style={{ fontFamily: 'Outfit, sans-serif' }}>
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(45deg, #000 1px, transparent 1px)',
+          backgroundSize: '30px 30px'
+        }}
+      />
+
+      {/* Floating Icons */}
+      <div className="absolute top-10 right-10 hidden md:block">
+        <NeoStar size={60} color="#FF6B6B" className="drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]" />
+      </div>
+      <div className="absolute bottom-20 left-10 hidden md:block">
+        <NeoSpiral size={50} color="#A3E635" />
       </div>
 
-      {/* Content */}
-      <motion.div 
-        className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ opacity, scale }}
-      >
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +113,7 @@ const Journey = () => {
           className="text-center mb-12"
         >
           <motion.h2 
-            className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 italic"
+            className="text-5xl md:text-6xl font-black text-black mb-4 uppercase tracking-tighter drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -148,7 +126,7 @@ const Journey = () => {
             My Journey
           </motion.h2>
           <motion.p 
-            className="text-gray-400 max-w-2xl mx-auto font-light"
+            className="text-black max-w-2xl mx-auto font-bold bg-neo-accent inline-block px-4 py-1 border-2 border-black shadow-neo-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -160,10 +138,11 @@ const Journey = () => {
         <div className="relative">
           {/* Animated Timeline Line */}
           <motion.div 
-            className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-white/10"
+            className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-black"
             style={{ height: "100%" }}
             initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
 
@@ -171,7 +150,8 @@ const Journey = () => {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
           >
             {timelineData.map((item, index) => (
               <motion.div
@@ -189,44 +169,47 @@ const Journey = () => {
                   index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'
                 }`}>
                   <motion.div
-                    className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gray-900 border border-white/20 rounded-full flex items-center justify-center z-10"
+                    className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-neo-primary border-2 border-black flex items-center justify-center z-10 shadow-neo-sm"
                     variants={iconVariants}
                     initial="initial"
-                    animate="animate"
+                    whileInView="animate"
                     whileHover="hover"
+                    viewport={{ once: true }}
                   >
-                    <item.icon className="w-6 h-6 text-white" />
+                    <item.icon className="w-6 h-6 text-black" />
                   </motion.div>
                 </div>
 
                 <motion.div 
-                  className={`bg-white/5 rounded-xl p-6 border border-white/10 max-w-md mx-auto md:mx-0 ${
+                  className={`bg-white rounded-none p-6 border-3 border-black shadow-neo max-w-md mx-auto md:mx-0 ${
                     index % 2 === 0 ? 'md:ml-12' : 'md:mr-12 md:ml-auto'}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   whileHover={{
                     scale: 1.02,
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                    boxShadow: "8px 8px 0px 0px rgba(0,0,0,1)",
                     transition: { duration: 0.3 },
                   }}
                 >
                   <motion.div 
                     className="flex items-center justify-between mb-4"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
                   >
                     <motion.span 
-                      className="text-sm text-white/60 font-mono"
-                      whileHover={{ scale: 1.1, color: "#ffffff" }}
+                      className="text-sm text-black font-mono font-bold bg-neo-accent px-2 py-1 border-2 border-black"
+                      whileHover={{ scale: 1.1 }}
                     >
                       {item.year}
                     </motion.span>
                     <motion.span 
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        item.type === 'education' ? 'bg-green-500/20 text-green-300' :
-                        item.type === 'learning' ? 'bg-blue-500/20 text-blue-300' : ''
+                      className={`px-3 py-1 border-2 border-black text-xs font-bold text-black ${
+                        item.type === 'education' ? 'bg-neo-green' :
+                        item.type === 'learning' ? 'bg-neo-secondary' : ''
                       }`}
                       whileHover={{ scale: 1.1 }}
                     >
@@ -234,25 +217,28 @@ const Journey = () => {
                     </motion.span>
                   </motion.div>
                   <motion.h3 
-                    className="text-xl font-bold text-white mb-2 font-serif"
+                    className="text-xl font-black text-black mb-2 uppercase"
                     initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.4 }}
                   >
                     {item.title}
                   </motion.h3>
                   <motion.p 
-                    className="text-gray-400 mb-2 font-medium"
+                    className="text-black mb-2 font-bold"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.5 }}
                   >
                     {item.company}
                   </motion.p>
                   <motion.p 
-                    className="text-gray-500 font-light text-sm"
+                    className="text-black font-medium text-sm"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.6 }}
                   >
                     {item.description}
@@ -262,7 +248,7 @@ const Journey = () => {
             ))}
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
