@@ -5,7 +5,7 @@ import {
   FileCode2, Braces, Palette, PenTool, Github, ShieldCheck, Settings2, 
   Languages, Globe, BookOpen 
 } from 'lucide-react';
-import pfp from '../images/pfp.png';
+import pfp from '../images/pfpwithoutbg.png';
 import { NeoSpiral, NeoStar, NeoCross } from './NeoIcons';
 
 const AboutMe = () => {

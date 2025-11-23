@@ -3,12 +3,12 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { NeoSparkle, NeoSquare } from './NeoIcons';
 
-import pixabayclone from '../images/pixabayclone.png';
+import pixabayclone from '../images/pixabay.png';
 import salesforce from '../images/salesforce.png';
 import etsy from '../images/etsy.png';
 import environment from '../images/environment.png';
 
-import cssBasic from '../images/certificates/cssbasic.png';
+import cssBasic from '../images/certificates/cssBasic.png';
 import javascriptbasic from '../images/certificates/jsbasic.png';
 import reactbasic from '../images/certificates/reactbasic.png';
 import nodebasic from '../images/certificates/nodebasic.png';
